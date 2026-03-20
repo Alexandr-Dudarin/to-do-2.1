@@ -41,7 +41,7 @@ https://to-do-2-1.vercel.app
 
 ## 📷 Screenshot
 
-![ToDo App](./screenshot.png)
+![ToDo App](./todo-screenshot.png)
 
 ---
 
