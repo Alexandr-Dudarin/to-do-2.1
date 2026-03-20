@@ -84,7 +84,7 @@ const ToDoList: React.FC<ToDoListProps> = ({
             ? "Нет активных задач."
             : filter === "completed"
                 ? "Нет выполненных задач."
-                : "Список пуст. Добавьте первую задачу";
+                : "Список пуст. Добавьте первую задачу.";
 
     const isAddDisabled =
         !newTaskText.trim() || newTaskText.trim().length > maxTaskLength;
@@ -217,7 +217,6 @@ const ToDoList: React.FC<ToDoListProps> = ({
                                     <span
                                         className="task-text"
                                         onDoubleClick={() => startEdit(task)}
-                                        onClick={() => onToggleCompleted(task.id)}
                                         title="Двойной клик для редактирования"
                                     >
                                         {task.text}
