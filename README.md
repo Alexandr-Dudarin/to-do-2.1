@@ -1,32 +1,66 @@
-# ToDo App
+# ✅ ToDo App
 
-Простое и удобное приложение для управления задачами.
+A task management application built with React and TypeScript.
 
-## 🚀 Демо
+The project demonstrates CRUD operations, validation, filtering, and persistent state using localStorage.
+
+---
+
+## 🚀 Demo
+
 https://to-do-2-1.vercel.app
 
-## 📌 Функциональность
+---
 
-- Добавление задач
-- Удаление задач
-- Редактирование задач
-- Фильтрация (все / активные / выполненные)
-- Сохранение в localStorage
-- Очистка выполненных задач
+## ✨ Features
 
-## 🛠️ Технологии
+- Add new tasks
+- Edit existing tasks
+- Delete tasks
+- Mark tasks as completed
+- Toggle all tasks
+- Filter tasks (all / active / completed)
+- Clear completed tasks
+- Validation:
+  - prevents empty tasks
+  - prevents duplicate tasks
+  - limits task length
+- Data persistence using localStorage
+
+---
+
+## 🛠️ Tech Stack
 
 - React
 - TypeScript
 - Vite
+- CSS
+- LocalStorage
 
-## 📷 Скриншот
+---
 
-![Library App](./screenshot.png)
+## 📷 Screenshot
 
+![ToDo App](./screenshot.png)
 
-## ⚙️ Установка
+---
+
+## 🧠 What I practiced
+
+- State management with React hooks
+- Controlled components (forms)
+- CRUD operations
+- Conditional rendering
+- Working with lists and keys
+- Validation logic
+- LocalStorage integration
+- Component structure and separation of concerns
+
+---
+
+## ⚙️ Run locally
 
 ```bash
 npm install
 npm run dev
+```
