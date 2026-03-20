@@ -54,24 +54,24 @@ const ToDoList: React.FC<ToDoListProps> = ({
     const [editError, setEditError] = useState<string | null>(null);
 
     useEffect(() => {
-  const vv = window.visualViewport;
-  if (!vv) return;
+        const vv = window.visualViewport;
+        if (!vv) return;
 
-  const setOffsets = () => {
-    const keyboardOffset = Math.max(0, window.innerHeight - vv.height - vv.offsetTop);
+        const setOffsets = () => {
+            const keyboardOffset = Math.max(0, window.innerHeight - vv.height - vv.offsetTop);
 
-    document.documentElement.style.setProperty("--kb-offset", `${keyboardOffset}px`);
-  };
+            document.documentElement.style.setProperty("--kb-offset", `${keyboardOffset}px`);
+        };
 
-  setOffsets();
-  vv.addEventListener("resize", setOffsets);
-  vv.addEventListener("scroll", setOffsets);
+        setOffsets();
+        vv.addEventListener("resize", setOffsets);
+        vv.addEventListener("scroll", setOffsets);
 
-  return () => {
-    vv.removeEventListener("resize", setOffsets);
-    vv.removeEventListener("scroll", setOffsets);
-  };
-}, []);
+        return () => {
+            vv.removeEventListener("resize", setOffsets);
+            vv.removeEventListener("scroll", setOffsets);
+        };
+    }, []);
 
     const filteredTasks = useMemo(() => {
         if (filter === "active") return tasks.filter((t) => !t.completed);
@@ -84,7 +84,10 @@ const ToDoList: React.FC<ToDoListProps> = ({
             ? "Нет активных задач."
             : filter === "completed"
                 ? "Нет выполненных задач."
-                : "Список пуст. Добавь первую задачу";
+                : "Список пуст. Добавьте первую задачу";
+
+    const isAddDisabled =
+        !newTaskText.trim() || newTaskText.trim().length > maxTaskLength;
 
     const startEdit = (task: Task) => {
         setEditingId(task.id);
@@ -199,6 +202,12 @@ const ToDoList: React.FC<ToDoListProps> = ({
                                 <div
                                     className={`checkbox ${task.completed ? "checked" : ""}`}
                                     onClick={() => onToggleCompleted(task.id)}
+                                    onKeyDown={(e) => {
+                                        if (e.key === "Enter" || e.key === " ") {
+                                            e.preventDefault();
+                                            onToggleCompleted(task.id);
+                                        }
+                                    }}
                                     role="button"
                                     tabIndex={0}
                                     aria-label="Отметить выполненной"
@@ -206,10 +215,10 @@ const ToDoList: React.FC<ToDoListProps> = ({
 
                                 {!isEditing ? (
                                     <span
+                                        className="task-text"
                                         onDoubleClick={() => startEdit(task)}
                                         onClick={() => onToggleCompleted(task.id)}
                                         title="Двойной клик для редактирования"
-                                        style={{ cursor: "pointer" }}
                                     >
                                         {task.text}
                                     </span>
@@ -274,7 +283,12 @@ const ToDoList: React.FC<ToDoListProps> = ({
                 </ul>
             )}
             <div className="add-sticky">
-                <button className="add-button" onClick={handleAddClick} type="button">
+                <button
+                    className="add-button"
+                    onClick={handleAddClick}
+                    type="button"
+                    disabled={isAddDisabled}
+                >
                     Добавить задачу
                 </button>
             </div>

@@ -70,13 +70,8 @@
   transform: rotate(45deg);
 }
 
-.todo-item span {
-  flex: 1;
-  cursor: pointer;
-}
-
 .delete-button {
-  background-color: #e74c3c; 
+  background-color: #e74c3c;
   color: white;
   border: none;
   padding: 6px 12px;
@@ -96,7 +91,7 @@
   margin-top: 15px;
   font-size: 16px;
   font-weight: bold;
-  background-color: #3498db; 
+  background-color: #3498db;
   color: white;
   border: none;
   border-radius: 8px;
@@ -225,6 +220,28 @@
   gap: 6px;
 }
 
+.task-text {
+  flex: 1;
+  cursor: pointer;
+}
+
+.filter-btn:hover,
+.clear-btn:hover,
+.toggleall-btn:hover,
+.edit-button:hover,
+.save-button:hover,
+.cancel-button:hover {
+  opacity: 0.9;
+}
+
+button:focus-visible,
+.todo-input:focus-visible,
+.edit-input:focus-visible,
+.checkbox:focus-visible {
+  outline: 2px solid #3498db;
+  outline-offset: 2px;
+}
+
 .top-actions {
   display: flex;
   gap: 8px;
@@ -310,7 +327,7 @@
     padding: 10px 0;
   }
 
-  .todo-item span {
+  .task-text {
     line-height: 1.35;
   }
 
@@ -344,9 +361,7 @@
   }
 
   .todo-container {
-    padding-bottom: calc(
-      var(--sticky-height) + var(--sticky-gap) + env(safe-area-inset-bottom) + var(--kb-offset)
-    );
+    padding-bottom: calc(var(--sticky-height) + var(--sticky-gap) + env(safe-area-inset-bottom) + var(--kb-offset));
   }
 
   .add-sticky {

@@ -45,6 +45,12 @@ https://to-do-2-1.vercel.app
 
 ---
 
+## 🎥 Demo
+
+![Demo](./demo.gif)
+
+---
+
 ## 🧠 What I practiced
 
 - State management with React hooks
