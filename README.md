@@ -22,7 +22,7 @@ https://to-do-2-1.vercel.app
 
 ## 📷 Скриншот
 
-<img width="608" height="752" alt="screen" src="https://github.com/user-attachments/assets/ca4c065a-9cae-481b-9141-d5763ca93ac2" />
+![Library App](./screenshot.png)
 
 
 ## ⚙️ Установка
